@@ -1,0 +1,93 @@
+QUERY UTILI:
+
+- SELECT 
+	GJE.CreatedDateTime,
+	GJE.AccountingDate,
+    GJE.Ledger,
+    GJE.PostingLayer,
+    GJE.SubledgerVoucher,
+    GJE.SubledgerVoucherDataAreaId,
+    GJE.CreatedBy,
+    JC.Label AS JournalCategory,
+    GJAE.AccountingCurrencyAmount,
+    PT.Label AS PostingType,
+	GJAE.PostingType,
+    GJAE.MainAccount,
+    GJAE.Text,
+    GJAE.ReportingCurrencyAmount,
+    GJAE.TransactionCurrencyAmount,
+    GJAE.TransactionCurrencyCode
+    --SDH.TypeEnumName
+	------------
+/*	GJE.RECID,
+	GJAE.GeneralJournalEntry,
+	GJE.JOURNALCATEGORY,
+	JC.Value,
+	GJAE.RECID,
+	SJAE.GENERALJOURNALACCOUNTENTRY,
+	SJAE.SUBLEDGERJOURNALENTRY,
+	SJE.RECID,
+	SJE.ACCOUNTINGEVENT,
+	AE.RECID,
+	AE.SOURCEDOCUMENTHEADER,
+	SDH.RECID
+*/
+FROM GENERALJOURNALENTRY GJE
+JOIN GENERALJOURNALACCOUNTENTRY GJAE ON GJE.RECID = GJAE.GeneralJournalEntry
+JOIN POSTINGTYPE PT ON PT.Value = GJAE.POSTINGTYPE
+JOIN JOURNALCATEGORY JC ON GJE.JOURNALCATEGORY = JC.Value
+
+WHERE GJE.SUBLEDGERVOUCHERDATAAREAID = 'it01'
+
+ORDER BY GJE.CREATEDDATETIME
+
+-- Ordino per createddatetime o accounting date?
+
+
+
+--CREATE VIEW CLOSINGTRANSACTION AS
+SELECT 
+    GJE.AccountingDate,
+    GJE.Ledger,
+    GJE.PostingLayer,
+    GJE.SubledgerVoucher,
+    GJE.SubledgerVoucherDataAreaId,
+    GJE.CreatedDateTime,
+    GJE.CreatedBy,
+    JC.Label AS JournalCategory,
+    GJAE.AccountingCurrencyAmount,
+    PT.Label AS PostingType,
+	GJAE.PostingType,
+    GJAE.MainAccount,
+    GJAE.Text,
+    GJAE.ReportingCurrencyAmount,
+    GJAE.TransactionCurrencyAmount,
+    GJAE.TransactionCurrencyCode
+    --SDH.TypeEnumName
+	--
+/*	GJE.RECID,
+	GJAE.GeneralJournalEntry,
+	GJE.JOURNALCATEGORY,
+	JC.Value,
+	GJAE.RECID,
+	SJAE.GENERALJOURNALACCOUNTENTRY,
+	SJAE.SUBLEDGERJOURNALENTRY,
+	SJE.RECID,
+	SJE.ACCOUNTINGEVENT,
+	AE.RECID,
+	AE.SOURCEDOCUMENTHEADER,
+	SDH.RECID
+*/
+FROM GENERALJOURNALENTRY GJE
+JOIN GENERALJOURNALACCOUNTENTRY GJAE ON GJE.RECID = GJAE.GeneralJournalEntry
+JOIN POSTINGTYPE PT ON PT.Value = GJAE.POSTINGTYPE
+JOIN JOURNALCATEGORY JC ON GJE.JOURNALCATEGORY = JC.Value
+/*JOIN SUBLEDGERJOURNALACCOUNTENTRY SJAE ON GJAE.RECID = SJAE.GENERALJOURNALACCOUNTENTRY
+JOIN SUBLEDGERJOURNALENTRY SJE ON SJAE.SUBLEDGERJOURNALENTRY = SJE.RECID
+JOIN ACCOUNTINGEVENT AE ON SJE.ACCOUNTINGEVENT = AE.RECID
+JOIN SOURCEDOCUMENTHEADER SDH ON AE.SOURCEDOCUMENTHEADER = SDH.RECID
+*/
+-- ORDER BY GJE.RECID ASC
+
+-- Capire cosa mettere? Left outer? Right outer? Outer? Booooh
+

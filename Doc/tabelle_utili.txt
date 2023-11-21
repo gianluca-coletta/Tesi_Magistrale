@@ -1,0 +1,20 @@
+GeneralJournalEntry:
+
+FiscalCalendarPeriod
+FiscalCalendarYear
+CompanyInfo
+Ledger
+TransactionLog
+LedgerEntryJournal 
+
+GeneralJournalAccountEntry:
+
+MainAccount
+
+
+SysUserInfo
+SystemUserRole (User - SysUserInfo, SecurityRole - SecurityRole)
+SecurityRole
+
+
+- = collegamento

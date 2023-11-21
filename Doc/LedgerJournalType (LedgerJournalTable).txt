@@ -1,0 +1,47 @@
+0 Daily Daily
+1 Periodic Periodic
+2 PurchaseLedger Invoice register
+3 Approval Approval
+4 Payment Vendor disbursement
+6 Allocation Allocation 
+7 CustPayment Customer payment
+8 Cost Project-expenses
+10 VendInvoiceRegister Vendor invoice recording
+11 VendInvoicePool Vendor invoice pool
+13 Assets Post fixed assets
+14 AssetBudgets Fixed asset budget
+15 CustPaymRemittance Customer bank remittance
+16 CustBillOfExchangeDraw Customer draw bill of exchange
+17 CustBillOfExchangeProtest Customer protest bill of exchange
+18 CustBillOfExchangeRedraw Customer redraw bill of exchange
+19 VendPromissoryNoteDraw Vendor draw promissory note
+20 CustBillOfExchangeAccept Customer accept bill of exchange
+21 VendPromissoryNoteRedraw Vendor redraw promissory note
+22 VendPaymRemittance Vendor bank remittance
+23 CustBillOfExchangeSettle Customer settle bill of exchange
+24 VendPromissoryNoteSettle Vendor settle promissory note
+25 Elimination Elimination
+26 Budget Budget
+27 VendInvoice Vendor invoice
+28 Netting Netting
+29 CustomsDeclaration_IT Customs declaration
+44 RDeferrals Deferrals
+45 RCash Cash
+46 Payroll_RU Salary transactions
+47 Assets_RU Fixed assets transaction
+48 AssetBudgets_RU Transaction of FA budgets
+49 RTax25 Tax differences
+50 RAssetAssessedTax Assessed tax
+51 RAssetTransportTax Transport tax
+52 RTax25AmountDifference Amount difference
+53 RAssetLandTax Land tax
+54 RTax25ExchDifference Exchange adjustment 
+117 StatTrans Statistic transactions
+120 Payroll Payroll
+130 PayrollDisbursement Payroll disbursement
+201 RTax25TaxRemainGoods Tax cost price
+202 FBTaxAssessmentAdjustments_BR General tax adjust/benefit/incentive
+247 RTax25TaxDiffByBalance Tax differences by balance method
+248 RTax25DebtDebitReserve Accounts receivable-bad debts reserve
+249 ReportingCurrencyAdjustment Reporting currency adjustment
+250 None None

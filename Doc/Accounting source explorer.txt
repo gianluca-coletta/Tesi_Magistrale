@@ -1,0 +1,62 @@
+General ledger -> Inquiries and reports -> AccountingSourceExplorer
+
+POSSIBILE QUERY CREAZIONE TABELLA:
+
+GeneralJournalEntry                         generalJournalEntry;
+        GeneralJournalAccountEntry                  generalJournalAccountEntry;
+        SubledgerJournalAccountEntry                subledgerJournalAccountEntry;
+        SubledgerJournalEntry                       subledgerJournalEntry;
+        AccountingEvent                             accountingEvent;
+        SourceDocumentHeader                        sourceDocumentHeader;
+        SubledgerJournalAccountEntryDistribution    subledgerJournalAccountEntryDistribution;
+        MainAccount                                 mainAccount;
+ 
+        insert_recordset accountingSourceExplorerTmp(
+            JournalNumber,
+            AccountingDate,
+            SubledgerVoucher,
+            DocumentNumber,
+            DocumentDate,
+            JournalCategory,
+            PostingType,
+            Text,
+            LedgerAccount,
+            TransactionCurrencyCode,
+            LedgerDimension,
+            GeneralJournalAccountEntry,
+            IsCorrection,
+            Side,
+            AccountingCurrencyAmount,
+            ReportingCurrencyAmount,
+            TransactionCurrencyAmount,
+            TypeEnumName,
+            SourceDocumentRecId,
+            SourceRelationType,
+            MainAccountId,
+            MainAccountName)
+        select
+            JournalNumber,
+            AccountingDate,
+            SubledgerVoucher,
+            DocumentNumber,
+            DocumentDate,
+            JournalCategory
+        from generalJournalEntry
+            where generalJournalEntry.AccountingDate >= accountingSourceExplorerBalanceParameters.parmStartDate()
+&& generalJournalEntry.AccountingDate <= accountingSourceExplorerBalanceParameters.parmEndDate()
+&& generalJournalEntry.Ledger == ledger
+        join PostingType, Text, LedgerAccount, TransactionCurrencyCode, LedgerDimension, RecId, IsCorrection from generalJournalAccountEntry
+            where generalJournalAccountEntry.GeneralJournalEntry == generalJournalEntry.RecId
+        join Side, AccountingCurrencyAmount, ReportingCurrencyAmount, TransactionCurrencyAmount  from subledgerJournalAccountEntry
+            where subledgerJournalAccountEntry.GeneralJournalAccountEntry == generalJournalAccountEntry.RecId
+        join subledgerJournalEntry
+            where subledgerJournalEntry.RecId == subledgerJournalAccountEntry.SubledgerJournalEntry
+        join accountingEvent
+            where accountingEvent.RecId == subledgerJournalEntry.AccountingEvent
+        join TypeEnumName, RecId, SourceRelationType from sourceDocumentHeader
+            where sourceDocumentHeader.RecId == accountingEvent.SourceDocumentHeader
+        join MainAccountId, Name from mainAccount
+            where mainAccount.RecId == generalJournalAccountEntry.MainAccount
+        notexists join subledgerJournalAccountEntryDistribution
+            where subledgerJournalAccountEntryDistribution.SubledgerJournalAccountEntry == subledgerJournalAccountEntry.RecId;
+    }

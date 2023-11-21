@@ -1,0 +1,48 @@
+0 none
+1 Transfer Transfer
+2 Sales Sales order
+3 Purch Purchase order
+4 Invent Inventory
+5 Production Production
+6 Project Project
+7 Interest Interest
+8 Cust Customer
+9 ExchAdjustment Foreign currency revaluation
+10 SummedUp Totaled
+11 PayRoll PayRoll
+12 FixedAssets Fixed assets
+13 CollectionLetter Collection letter
+14 Vend Vendor
+15 Payment Payment
+16 Tax Sales tax
+17 Bank Bank
+18 Conversion Ledger accounting currency conversion
+19 BillOfExchange Bill of exchange
+20 PromissoryNote Promissory note
+21 Cost Cost accounting
+22 Work Labor
+23 Fee Fee
+24 Settlement Settlement
+25 Allocation Allocation
+26 Elimination Elimination
+27 CashDiscount Cash discount
+28 OverUnder Overpayment/underpayment
+29 PennyDifference Penny difference
+30 CrossCompanySettlement Intercompany settlement
+31 PurchReq Purchase requisition
+32 InflationAdjustment_MX Inflation adjustment
+33 PurchAdvanceApplication Prepayment application
+34 ConversionReporting Ledger reporting currency conversion
+35 WriteOff Write off
+36 GeneralJournal General journal
+79 FixedAssets_RU Fixed assets (Russia)
+80 RTax25_BadDebtDebitAmortisation AR amortization
+81 RDeferrals Deferrals
+82 RTax25_BadDebtCreditAmortisation AP amortization
+83 AdvanceAdjustment_RU Advance adjustment
+84 VATTaxAgent_RU Tax agent
+85 GainLossCurrencyDeal_RU Currency conversion gain/loss
+100 PdsRebateCreditNote Rebate credit note processing
+101 PdsRebatePassToAP Rebate pass to AP
+250 MCRUnderpayWriteOff Underpayment write off
+

@@ -1,0 +1,67 @@
+Da fare: 
+- Per ogni Posting type i possibili di JournalCategory (FATTO)
+- Ricavare GroupChartOfAccounts (LedgerDimension) (FATTO)
+- LedgerJournalTable tabella: ricavare JournalType (JournalNum) (FATTO)
+
+SubledgerVoucher = ledgerjournalTrans.voucher 
+
+&& accountingDate = transate 
+
+&& company = company
+ 
+una volta recuperati i record(o il record) in ledgerjournalTrans
+ 
+ledgerjournalTrans.JournalNum = LedgerJournalTable.JournalNum
+ 
+e su LedgerJournalTable, prendi:
+ 
+-JournalnumOfLines (il numero di righe)
+
+-JournalType (ti dice il tipo di giornale)
+
+-JournalTotalDebit (totale importo giornale in debit(Dare))
+
+-JournalTotalCredit (totale importo giornale in credit(avere))
+
+
+SELECT
+    GJE.SUBLEDGERVOUCHER,
+	GJE.RECID,
+	GJE.SUBLEDGERVOUCHERDATAAREAID,
+	LJT1.NUMOFLINES,
+	LJT1.JOURNALTYPE,
+	LJT1.JOURNALTOTALCREDIT,
+	LJT1.JOURNALTOTALDEBIT,
+    COUNT(*) AS COUNT
+FROM GENERALJOURNALENTRY GJE
+JOIN LEDGERJOURNALTRANS LJT ON GJE.SUBLEDGERVOUCHER = LJT.VOUCHER AND LJT.DATAAREAID = GJE.SUBLEDGERVOUCHERDATAAREAID 
+JOIN LEDGERJOURNALTABLE LJT1 ON LJT1.JOURNALNUM = LJT.JOURNALNUM AND LJT1.DATAAREAID = LJT.DATAAREAID
+WHERE GJE.SUBLEDGERVOUCHER != ''
+GROUP BY
+    GJE.SUBLEDGERVOUCHER,
+	GJE.RECID,
+	GJE.SUBLEDGERVOUCHERDATAAREAID,
+	LJT1.NUMOFLINES,
+	LJT1.JOURNALTYPE,
+	LJT1.JOURNALTOTALCREDIT,
+	LJT1.JOURNALTOTALDEBIT;'
+
+Num righe: 25'966'383
+
+
+SELECT
+    GJE.SUBLEDGERVOUCHER,
+	GJE.RECID,
+	GJE.SUBLEDGERVOUCHERDATAAREAID,
+	LJT1.NUMOFLINES,
+	LJT1.JOURNALTYPE
+FROM GENERALJOURNALENTRY GJE
+JOIN LEDGERJOURNALTRANS LJT ON GJE.SUBLEDGERVOUCHER = LJT.VOUCHER AND LJT.DATAAREAID = GJE.SUBLEDGERVOUCHERDATAAREAID 
+JOIN LEDGERJOURNALTABLE LJT1 ON LJT1.JOURNALNUM = LJT.JOURNALNUM AND LJT1.DATAAREAID = LJT.DATAAREAID
+WHERE GJE.SUBLEDGERVOUCHER != ''
+
+25'890'581 (con distinct)
+100kk e passa (senza distinct)
+
+'BE01-MIG000000007' (ci sono due righe con lo stesso voucher, che significa?)
+

@@ -1,0 +1,29 @@
+Riunione tesi 17/10/2023:
+
+- Intersezione PostingType con DocumentType e TransactionType
+
+(facendo una ricerca veloce nella mia MV, il campo TransactionType appare nelle seguenti tabelle: PROJECTCATEGORYSTAGING, SMASERVICEORDERLINE, TRANSACTTXT, CFOPMATRIX_BR, TRANSITDOCUMENTTRANSACTIONRULE_IN, REQDEMPLANCUBESTAGINGTABLE, ASSETDEPBOOKJOURNALTRANSUPGRADETMP, SMAAGREEMENTLINE, CUSTSETTLEMENTTRANSACTIONPRIORITY,
+LEAVEBANKTRANSACTION, LEDGERJOURNALTRANS
+
+QUERY: 
+-- Cerca le colonna "TransactionType" in tutte le tabelle del database
+USE AxDB; -- Sostituisci con il nome effettivo del tuo database
+
+DECLARE @SearchColumnName2 NVARCHAR(100) = 'TransactionType'; -- Sostituisci con il nome dell'altra colonna che stai cercando
+
+DECLARE @Sql NVARCHAR(MAX) = '';
+
+SELECT @Sql = @Sql + 
+    'SELECT DISTINCT ''' + t.name + ''' AS TableName
+    FROM ' + t.name + ' WHERE ' + c.name + ' IS NOT NULL UNION ALL ' 
+FROM sys.tables t
+JOIN sys.columns c ON t.object_id = c.object_id
+WHERE c.name = @SearchColumnName2;
+
+-- Rimuovi l'ultimo "UNION ALL"
+SET @Sql = LEFT(@Sql, LEN(@Sql) - LEN(' UNION ALL '));
+
+-- Esegui la query
+EXEC sp_executesql @Sql;
+
+)

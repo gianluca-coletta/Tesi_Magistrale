@@ -1,0 +1,50 @@
+Posting Type Label,Posting Type Value,Journal Category
+ExchRateGain,1,"Sales tax,Customer,Foreign currency revaluation,Vendor,None"
+ExchRateLoss,2,"Foreign currency revaluation,None,Vendor,Sales tax,Customer"
+InterCompany,3,"General journal,None"
+Tax,4,"Transfer,Sales order,Customer,Purchase order,Vendor,Sales tax,Project,None,General journal"
+Allocation,6,"Vendor,General journal,None"
+MSTDiffSecond,9,"General journal,Fixed assets,Vendor,Allocation,Sales order,None,Customer,Purchase order"
+MSTDiff,11,"General journal,Vendor,Allocation,None,Customer,Sales order,Purchase order"
+Closing,13,Transfer
+LedgerJournal,14,"Fixed assets,Customer,General journal,Vendor,Payment,Transfer,Sales order,Allocation,None,Purchase order"
+TransferOpeningClosing,19,None
+Bank,20,"Customer,Vendor,General journal,Payment,None,Bank"
+TaxWithhold,23,"None,Vendor,Customer"
+CustBalance,31,"Project,Vendor,General journal,Foreign currency revaluation,None,Sales order,Customer,Payment"
+CustRevenue,32,"Customer,None"
+CustCashDisc,34,"Customer,None"
+CustInvoiceDisc,37,Sales order
+CustSettlement,40,"None,Customer"
+VendBalance,41,"None,Transfer,Payment,Fixed assets,Vendor,General journal,Foreign currency revaluation,Purchase order"
+VendPurchLedger,42,Purchase order
+VendCashDisc,45,"None,Vendor"
+VendInvoiceDisc,47,Purchase order
+VendSettlement,48,"Vendor,None"
+CrossCompanySettlement,49,"Vendor,Customer"
+SalesRevenue,51,Sales order
+SalesRoundOff,58,"Sales order,Customer"
+SalesPckSlipRevenue,64,Sales order
+SalesPckSlipRevenueOffsetAccou,65,Sales order
+PurchConsump,71,Purchase order
+PurchDisc,72,Purchase order
+PurchFee,75,Purchase order
+PurchPostage,76,Purchase order
+PurchaseInvoiceRoundOff,78,"Purchase order,None"
+PurchOffsetAccountPckSlp,83,Purchase order
+ProjCost,121,"Purchase order,General journal,None,Project"
+ProjPayrollAllocation,122,Project
+ProjSalesvalue,128,Project
+ProjSalesvalueOffset,129,Project
+ProjWIPInvoicedOnAccount,138,Project
+DeferredCost,144,None
+ReportingCurrencyAdjustment,156,Sales order
+FixedAssetsDebit,161,"Customer,Fixed assets,None,Purchase order,General journal,Vendor"
+FixedAssetsCredit,162,"Customer,Fixed assets,General journal,None,Vendor"
+PurchPckSlpPurchaseOffsetAccou,203,Purchase order
+PurchPckSlpTax,204,Purchase order
+SalesPackingslipTax,206,Sales order
+PurchAdvance,212,"Purchase order,None"
+PurchAdvanceApplication,214,Purchase order
+PurchExpense,236,"Purchase order,None"
+BankStatement,249,Bank

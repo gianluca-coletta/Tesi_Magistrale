@@ -1,0 +1,8 @@
+Appunti riunione: 
+
+- Individuare i fattori di rischio
+- Modello di regressione: ARIMA - Auto Regressive (richiedono uno studio a livello statistico)
+- Capire che dati ho e formulare bene il problema: ho alcune variabili correlate tra di loro che variano nel tempo, capire il modello statistico migliore.
+- Reti neurali convoluzionali: Long term short memory (LTSM): reti ricorsive
+- Classificazione rischi (stimare tempo esatto)
+- Modellazione problema giusto
