@@ -1,25 +1,24 @@
 	SELECT --distinct top(10000)
-	COUNT(*),
-	--GJAE.RECID as GjaeRecId,
-	--GJAE.LedgerDimension,
-	--DAGCA.VALUE as GroupChartOfAccountsValue,
-	--DAGCA.name AS GroupChartOfAccountsName,
- --   GJE.Ledger,
- --   GJE.PostingLayer,
-	--GJE.SubledgerVoucher,
-	GJE.SubledgerVoucherDataAreaId
- --   GJE.CreatedBy,
- --   JC.Label AS JournalCategory,
- --   PT.Label AS PostingTypeLabel,
-	--GJAE.PostingType AS PostingTypeValue,
- --   GJAE.MainAccount,
- --   GJAE.Text,
-	--LJT.JournalType,
-	--LJTY.Label AS JournalTypeLabel,
-	--LJT.NumOfLines,
-	--LJT.Count as CountLedgerJournal,
- --   GJAE.TransactionCurrencyAmount,
- --   GJAE.TransactionCurrencyCode,
+	GJAE.RECID as GjaeRecId,
+	GJAE.LedgerDimension,
+	DAGCA.VALUE as GroupChartOfAccountsValue,
+	DAGCA.name AS GroupChartOfAccountsName,
+    GJE.Ledger,
+    GJE.PostingLayer,
+	GJE.SubledgerVoucher,
+	GJE.SUBLEDGERVOUCHERDATAAREAID,
+    GJE.CreatedBy,
+    JC.Label AS JournalCategory,
+    PT.Label AS PostingTypeLabel,
+	GJAE.PostingType AS PostingTypeValue,
+    GJAE.MainAccount,
+    GJAE.Text,
+	LJT.JournalType,
+	LJTY.Label AS JournalTypeLabel,
+	LJT.NumOfLines,
+	LJT.Count as CountLedgerJournal,
+    GJAE.TransactionCurrencyAmount,
+    GJAE.TransactionCurrencyCode
 	--CPA.Description as ClosingActivityDescription,
 	--CPA.Id as ClosingActivityId
 
@@ -34,13 +33,9 @@ LEFT JOIN LEDGERJOURNALTYPE LJTY ON LJTY.Value = LJT.JOURNALTYPE
 --join MAPPINGCLOSINGPERIODACTIVITY MCPA ON MCPA.postingtypelabel = pt.label and mcpa.journalcategorylabel = jc.label
 --join CLOSINGPERIODACTIVITY CPA ON CPA.Id = MCPA.ActivityId
 
-WHERE GJAE.PostingType = 14 AND JC.Label = 'None'
+WHERE GJAE.PostingType = 14 AND JC.Label = 'None'  and LJTY.Label != '' --and GJE.SUBLEDGERVOUCHERDATAAREAID ='it01' and GJAE.Text != ''
 
 --CPA.Id = 'ACT29' 
 --GJE.SUBLEDGERVOUCHERDATAAREAID = 'GB02' and CPA.Id = 'ACT29' and GJAE.Text != ''
 
 --ORDER BY GJE.SUBLEDGERVOUCHERDATAAREAID
-
-group by GJE.SubledgerVoucherDataAreaId
-
-ORDER BY COUNT(*)
