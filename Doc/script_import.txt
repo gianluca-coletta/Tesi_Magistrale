@@ -1,1 +1,0 @@
-SqlPackage.exe /a:import /sf:"C:\Users\colig\Downloads\tpd365-uatbackup.bacpac" /tsn:LAPTOP-SQAG6MLI /tdn:D365DB_TP /p:CommandTimeout=1200 /TargetTrustServerCertificate:True
