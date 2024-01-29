@@ -1,0 +1,11 @@
+PPT:
+
+- Come ho costruito il dataset e quale è il problema che voglio risolvere
+- Letteratura (stato dell'arte)
+- EDA
+
+Indice: 1) Contesto, motivazione e obiettivo, contributo (introduzione)
+	2) Stato dell'arte (forecasting)
+	3) Progettazione sistema (EDA, modelli e sperimentazione)
+	4) Ing della soluzione 
+	5) Conclusioni e sviluppi futuri
