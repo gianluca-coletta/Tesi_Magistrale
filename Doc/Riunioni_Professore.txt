@@ -1,0 +1,11 @@
+1:
+- Studiare Data Drift, se il modello va fuori strada dopo aver ricevuto nuovi dati
+- Gestire Outlier
+- Provare modelli addestrando singolarmente per ogni company oppure provare tutte insieme
+
+2:
+- Aggregazione dati per settimana
+- Aggiunta features relative al numero di transazioni per tipologia di attività di chiusura contabile
+- Tuning parametri dei modelli che ottengono lo score migliore
+
+
