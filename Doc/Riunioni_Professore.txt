@@ -18,3 +18,4 @@
 - Iniziare a scrivere primi capitoli
 
 - studiare meglio temporal fusion transformer e vedere se è possibile implementarlo con altre librerie
+
